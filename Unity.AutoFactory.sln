@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9DBB19
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.AutoFactory.Tests", "..\test\Unity.AutoFactory.Tests\Unity.AutoFactory.Tests.csproj", "{E5A0B706-FE05-4E7C-A647-3839AF8E772A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.AutoFactory.Tests", "test\Unity.AutoFactory.Tests\Unity.AutoFactory.Tests.csproj", "{E5A0B706-FE05-4E7C-A647-3839AF8E772A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
