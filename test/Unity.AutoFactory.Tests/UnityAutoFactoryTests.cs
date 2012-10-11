@@ -1,4 +1,9 @@
-﻿namespace Unity.AutoFactory.Tests
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="UnityAutoFactoryTests.cs" company="Pedro Pombeiro">
+//   2012 Pedro Pombeiro
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
+namespace Unity.AutoFactory.Tests
 // ReSharper disable InconsistentNaming
 {
     using Microsoft.Practices.Unity;
@@ -9,6 +14,14 @@
     public class UnityAutoFactoryTests
     {
         #region Interfaces
+
+        private interface ISomeInstance
+        {
+        }
+
+        private interface ISomeService
+        {
+        }
 
         /// <summary>
         /// The Test interface for one parameter.
@@ -29,42 +42,18 @@
         {
             #region Public Properties
 
+            ISomeService InjectedService { get; }
+
             string TestProperty1 { get; }
 
             ISomeInstance TestProperty2 { get; }
 
-            ISomeService InjectedService { get; }
-
             #endregion
-        }
-
-        private interface ISomeService
-        {
-        }
-
-        private interface ISomeInstance
-        {
         }
 
         #endregion
 
         #region Public Methods and Operators
-
-        [Test]
-        public void given_instantiated_Sut_when_Create_is_called_without_parameters_then_valid_instance_is_returned()
-        {
-            // Arrange
-            var unityContainer = new UnityContainer();
-
-            unityContainer.RegisterAutoFactoryFor<ISomeInstance, SomeInstance>().WithoutParameters();
-
-            // Act
-            var factory = unityContainer.Resolve<IUnityFactory<ISomeInstance>>();
-            var testClass = factory.Create();
-
-            // Assert
-            Assert.IsInstanceOf<SomeInstance>(testClass);
-        }
 
         [Test]
         public void given_instantiated_Sut_when_Create_is_called_with_one_parameter_then_TestProperty1_on_resulting_TestClass_matches_specified_value()
@@ -108,7 +97,31 @@
             }
         }
 
+        [Test]
+        public void given_instantiated_Sut_when_Create_is_called_without_parameters_then_valid_instance_is_returned()
+        {
+            // Arrange
+            var unityContainer = new UnityContainer();
+
+            unityContainer.RegisterAutoFactoryFor<ISomeInstance, SomeInstance>().WithoutParameters();
+
+            // Act
+            var factory = unityContainer.Resolve<IUnityFactory<ISomeInstance>>();
+            var testClass = factory.Create();
+
+            // Assert
+            Assert.IsInstanceOf<SomeInstance>(testClass);
+        }
+
         #endregion
+
+        private class SomeInstance : ISomeInstance
+        {
+        }
+
+        private class SomeService : ISomeService
+        {
+        }
 
         private class TestClass1 : ITest1
         {
@@ -143,21 +156,13 @@
 
             #region Public Properties
 
+            public ISomeService InjectedService { get; private set; }
+
             public string TestProperty1 { get; private set; }
 
             public ISomeInstance TestProperty2 { get; private set; }
 
-            public ISomeService InjectedService { get; private set; }
-
             #endregion
-        }
-
-        private class SomeService : ISomeService
-        {
-        }
-
-        private class SomeInstance : ISomeInstance
-        {
         }
     }
 }

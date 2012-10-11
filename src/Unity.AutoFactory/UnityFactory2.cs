@@ -17,9 +17,6 @@ namespace Unity.AutoFactory
     /// The type of the second parameter which will be passed to the <see cref="Create"/> method.
     /// </typeparam>
     /// <typeparam name="T">
-    /// instance of T
-    /// </typeparam>
-    /// <typeparam name="T">
     /// The type returned by the factory.
     /// </typeparam>
     public class UnityFactory2<TParam1, TParam2, T> :
