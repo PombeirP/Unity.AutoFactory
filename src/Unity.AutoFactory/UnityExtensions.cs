@@ -9,6 +9,8 @@ namespace Unity.AutoFactory
 
     using Microsoft.Practices.Unity;
 
+    using Unity.AutoFactory.Implementation;
+
     /// <summary>
     /// Defines extension methods for providing <see cref="IUnityContainer"/> with auto-factory registration support.
     /// </summary>

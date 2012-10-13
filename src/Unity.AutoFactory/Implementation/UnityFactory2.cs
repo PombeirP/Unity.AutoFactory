@@ -3,7 +3,8 @@
 //   2012 Pedro Pombeiro
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
-namespace Unity.AutoFactory
+
+namespace Unity.AutoFactory.Implementation
 {
     using System;
 
@@ -19,7 +20,7 @@ namespace Unity.AutoFactory
     /// <typeparam name="T">
     /// The type returned by the factory.
     /// </typeparam>
-    public class UnityFactory2<TParam1, TParam2, T> :
+    internal class UnityFactory2<TParam1, TParam2, T> :
         IUnityFactory<TParam1, TParam2, T>
     {
         #region Fields

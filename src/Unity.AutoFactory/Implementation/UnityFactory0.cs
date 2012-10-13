@@ -1,41 +1,39 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="UnityFactory1.cs" company="Pedro Pombeiro">
+// <copyright file="UnityFactory0.cs" company="Pedro Pombeiro">
 //   2012 Pedro Pombeiro
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
-namespace Unity.AutoFactory
+
+namespace Unity.AutoFactory.Implementation
 {
     using System;
 
     /// <summary>
-    /// Implementation of a Unity auto-factory which accepts a <typeparam name="TParam">parameter</typeparam> and returns a new <typeparam name="T">instance of T</typeparam>.
+    /// Implementation of a Unity auto-factory which returns a new <typeparam name="T">instance of T</typeparam>.
     /// </summary>
-    /// <typeparam name="TParam">
-    /// The type of the parameter which will be passed to the <see cref="Create"/> method.
-    /// </typeparam>
     /// <typeparam name="T">
     /// The type returned by the factory.
     /// </typeparam>
-    public class UnityFactory1<TParam, T> : IUnityFactory<TParam, T>
+    internal class UnityFactory0<T> : IUnityFactory<T>
     {
         #region Fields
 
         /// <summary>
         /// The delayed-resolution lambda provided by Unity which can create an instance of <see cref="T"/>.
         /// </summary>
-        private readonly Func<TParam, T> unityFactoryDelegate;
+        private readonly Func<T> unityFactoryDelegate;
 
         #endregion
 
         #region Constructors and Destructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UnityFactory1{TParam,T}"/> class.
+        /// Initializes a new instance of the <see cref="UnityFactory0{T}"/> class. 
         /// </summary>
         /// <param name="unityFactoryDelegate">
         /// The delayed-resolution lambda provided by Unity which can create an instance of <see cref="T"/>.
         /// </param>
-        public UnityFactory1(Func<TParam, T> unityFactoryDelegate)
+        public UnityFactory0(Func<T> unityFactoryDelegate)
         {
             this.unityFactoryDelegate = unityFactoryDelegate;
         }
@@ -45,13 +43,12 @@ namespace Unity.AutoFactory
         #region Public Methods and Operators
 
         /// <summary>
-        /// Creates an instance of type <see cref="T"/> through the Unity container passing a parameter of type <see cref="TParam"/>.
+        /// Creates an instance of type <see cref="T"/> through the Unity container.
         /// </summary>
-        /// <param name="param">The parameter to pass to the constructor of <see cref="T">the resulting class</see>.</param>
         /// <returns>A new instance of <see cref="T"/>.</returns>
-        public T Create(TParam param)
+        public T Create()
         {
-            return this.unityFactoryDelegate(param);
+            return this.unityFactoryDelegate();
         }
 
         #endregion

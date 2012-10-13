@@ -46,14 +46,14 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoFactoryRegistration.cs" />
     <Compile Include="IAutoFactoryRegistration.cs" />
+    <Compile Include="Implementation\AutoFactoryRegistration.cs" />
+    <Compile Include="Implementation\UnityFactory0.cs" />
+    <Compile Include="Implementation\UnityFactory1.cs" />
+    <Compile Include="Implementation\UnityFactory2.cs" />
     <Compile Include="IUnityFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnityExtensions.cs" />
-    <Compile Include="UnityFactory0.cs" />
-    <Compile Include="UnityFactory1.cs" />
-    <Compile Include="UnityFactory2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

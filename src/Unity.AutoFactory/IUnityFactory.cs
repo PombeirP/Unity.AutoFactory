@@ -3,6 +3,7 @@
 //   2012 Pedro Pombeiro
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace Unity.AutoFactory
 {
     /// <summary>
@@ -11,7 +12,7 @@ namespace Unity.AutoFactory
     /// <typeparam name="T">
     /// The type returned by the factory.
     /// </typeparam>
-    public interface IUnityFactory<out T>
+    public interface IUnityFactory<T>
     {
         #region Public Methods and Operators
 
@@ -33,7 +34,7 @@ namespace Unity.AutoFactory
     /// <typeparam name="T">
     /// The type returned by the factory.
     /// </typeparam>
-    public interface IUnityFactory<in TParam, out T>
+    public interface IUnityFactory<TParam, T>
     {
         #region Public Methods and Operators
 
@@ -59,7 +60,7 @@ namespace Unity.AutoFactory
     /// <typeparam name="T">
     /// The type returned by the factory.
     /// </typeparam>
-    public interface IUnityFactory<in TParam1, in TParam2, out T>
+    public interface IUnityFactory<TParam1, TParam2, T>
     {
         #region Public Methods and Operators
 
