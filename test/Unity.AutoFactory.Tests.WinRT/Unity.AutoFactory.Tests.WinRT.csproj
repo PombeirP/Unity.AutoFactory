@@ -111,8 +111,10 @@
     <SDKReference Include="TestPlatform, Version=11.0" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Unity.AutoFactory.Tests\UnityAutoFactoryTests.cs">
+      <Link>UnityAutoFactoryTests.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnityAutoFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -144,7 +146,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Unity.AutoFactory.WinRT\Unity.AutoFactory.WinRT.csproj">
+    <ProjectReference Include="..\..\src\Unity.AutoFactory.WinRT\Unity.AutoFactory.WinRT.csproj">
       <Project>{c272504e-3b77-480d-b86e-55998ca64fc4}</Project>
       <Name>Unity.AutoFactory.WinRT</Name>
     </ProjectReference>
