@@ -57,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Unity.AutoFactory\Unity.AutoFactory.csproj">
-      <Project>{0219FC7F-E430-40AA-BF2D-1BF3598F2C86}</Project>
+      <Project>{0219fc7f-e430-40aa-bf2d-1bf3598f2c86}</Project>
       <Name>Unity.AutoFactory</Name>
     </ProjectReference>
   </ItemGroup>
