@@ -122,6 +122,31 @@ namespace Unity.AutoFactory.Tests
         }
 
         [Test]
+        public void given_instantiated_Sut_when_Create_is_called_with_two_parameters_and_parameter_1_is_null_then_TestProperty1_and_2_on_resulting_TestClass_matches_specified_values()
+        {
+            // Arrange
+            using (var unityContainer = new UnityContainer())
+            {
+                unityContainer.RegisterAutoFactoryFor<ITest2, TestClass2>().WithParams<string, ISomeInstance>();
+
+                const string TestValue =null;
+                ISomeInstance someInstance = new SomeInstance();
+
+                unityContainer.RegisterType<ISomeService, SomeService>(new ContainerControlledLifetimeManager());
+
+                // Act
+                var factory = unityContainer.Resolve<IUnityFactory<string, ISomeInstance, ITest2>>();
+                var testClass = factory.Create(TestValue, someInstance);
+
+                // Assert
+                Assert.AreEqual(TestValue, testClass.TestProperty1);
+                Assert.AreEqual(someInstance, testClass.TestProperty2);
+                Assert.AreEqual(unityContainer.Resolve<ISomeService>(), testClass.InjectedService);
+            }
+        }
+
+
+        [Test]
         public void given_instantiated_Sut_when_Create_is_called_without_parameters_then_valid_instance_is_returned()
         {
             // Arrange
