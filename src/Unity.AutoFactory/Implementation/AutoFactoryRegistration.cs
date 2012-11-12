@@ -79,8 +79,8 @@ namespace Unity.AutoFactory.Implementation
             this.Container.RegisterInstance<Func<TParam1, TParam2, T>>(
                 (param1, param2) =>
                 this.Container.Resolve<T>(
-                    new DependencyOverride(typeof(TParam1), new InjectionParameter(param1)), 
-                    new DependencyOverride(typeof(TParam2), new InjectionParameter(param2))));
+                    new DependencyOverride(typeof(TParam1), new InjectionParameter<TParam1>(param1)),
+                    new DependencyOverride(typeof(TParam2), new InjectionParameter<TParam2>(param2))));
         }
 
         /// <summary>
