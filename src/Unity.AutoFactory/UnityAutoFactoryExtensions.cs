@@ -15,29 +15,9 @@ namespace Unity.AutoFactory
     /// <summary>
     /// Defines extension methods for providing <see cref="IUnityContainer"/> with auto-factory registration support.
     /// </summary>
-    public static class UnityExtensions
+    public static class UnityAutoFactoryExtensions
     {
         #region Public Methods and Operators
-
-        /// <summary>
-        /// Registers an auto factory which takes one typed parameter.
-        /// </summary>
-        /// <typeparam name="TFrom">
-        /// <see cref="Type"/> that will be requested.
-        /// </typeparam>
-        /// <typeparam name="TTo">
-        /// <see cref="Type"/> that will actually be returned.
-        /// </typeparam>
-        /// <param name="container">
-        /// The Unity container.
-        /// </param>
-        /// <returns>
-        /// The holder object which facilitates the fluent interface.
-        /// </returns>
-        public static IAutoFactoryRegistration<TFrom> RegisterAutoFactoryFor<TFrom, TTo>(this IUnityContainer container) where TTo : TFrom
-        {
-            return container.RegisterAutoFactoryFor<TFrom, TTo>(new ContainerControlledLifetimeManager());
-        }
 
         /// <summary>
         /// Registers an auto factory which takes one typed parameter.
@@ -64,6 +44,26 @@ namespace Unity.AutoFactory
             container.RegisterType<TFrom, TTo>();
 
             return autoFactoryRegistration;
+        }
+
+        /// <summary>
+        /// Registers an auto factory which takes one typed parameter.
+        /// </summary>
+        /// <typeparam name="TFrom">
+        /// <see cref="Type"/> that will be requested.
+        /// </typeparam>
+        /// <typeparam name="TTo">
+        /// <see cref="Type"/> that will actually be returned.
+        /// </typeparam>
+        /// <param name="container">
+        /// The Unity container.
+        /// </param>
+        /// <returns>
+        /// The holder object which facilitates the fluent interface.
+        /// </returns>
+        public static IAutoFactoryRegistration<TFrom> RegisterAutoFactoryFor<TFrom, TTo>(this IUnityContainer container) where TTo : TFrom
+        {
+            return container.RegisterAutoFactoryFor<TFrom, TTo>(new ContainerControlledLifetimeManager());
         }
 
         #endregion

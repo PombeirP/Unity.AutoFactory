@@ -3,6 +3,7 @@
 //   2012 Pedro Pombeiro
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
+
 namespace Unity.AutoFactory.Implementation
 {
     using System;
